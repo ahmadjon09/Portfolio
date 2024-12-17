@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser'
+import { Spinner } from 'react-spinners'
 
 import { styles } from '../styles'
 import { EarthCanvas } from './canvas'
@@ -17,6 +17,7 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
 
   const handleChange = e => {
     const { target } = e
@@ -38,14 +39,13 @@ const Contact = () => {
 
     setLoading(true)
 
-    const TELEGRAM_BOT_TOKEN = '7923723398:AAFY8rLRFrELUA07Oadx1lNtTzhNJnarMm8' // Replace with your bot token
-    const TELEGRAM_CHAT_ID = '6352403183' // Replace with your chat ID
+    const TELEGRAM_BOT_TOKEN = '7923723398:AAFY8rLRFrELUA07Oadx1lNtTzhNJnarMm8'
+    const TELEGRAM_CHAT_ID = '6352403183'
 
-    // Formatted message
     const message = `📩 *New Contact Form Submission*\n\n👤 *Name*: ${form.name}\n📧 *Email*: ${form.email}\n📝 *Message*: ${form.message}`
 
     try {
-      // Sending the message to Telegram bot
+      // Send message to Telegram Bot
       await fetch(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
         {
@@ -61,8 +61,23 @@ const Contact = () => {
         }
       )
 
+      // Send animation (GIF or sticker) to Telegram
+      await fetch(
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendAnimation`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            animation: 'https://media.giphy.com/media/3o6gE5aYMG2jiATQ3S/giphy.gif', // Example GIF URL
+          })
+        }
+      )
+
       setLoading(false)
-      alert('Thank you. Your message has been sent to Telegram!')
+      setSuccess(true)
 
       // Reset form
       setForm({
@@ -79,9 +94,7 @@ const Contact = () => {
   }
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
@@ -134,9 +147,27 @@ const Contact = () => {
             type='submit'
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
-            {loading ? 'Sending...' : 'Send'}
+            {loading ? (
+              <div className="flex justify-center">
+                <Spinner size={30} color="white" />
+              </div>
+            ) : (
+              'Send'
+            )}
           </button>
         </form>
+
+        {/* Success message with animation */}
+        {success && (
+          <motion.div
+            className='mt-4 p-4 bg-green-500 text-white rounded-lg'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            Your message has been sent successfully!
+          </motion.div>
+        )}
       </motion.div>
 
       <motion.div

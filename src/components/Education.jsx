@@ -43,7 +43,7 @@ const Education = () => {
         <p className={styles.sectionSubText}>Foundation of Life</p>
         <h2 className={styles.sectionHeadText}>Education.</h2>
       </motion.div>
-      <div className='mt-20 flex justify-around'>
+      <div className='mt-20 flex justify-around flex-wrap'>
         {education.map((education, index) => (
           <EducationCard key={education.name} index={index} {...education} />
         ))}

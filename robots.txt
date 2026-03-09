@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxmudov-dev.uz/sitemap.xmlrobots.txt

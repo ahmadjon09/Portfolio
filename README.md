@@ -172,11 +172,3 @@ The portfolio emphasizes:
 | **ESLint** | Code quality |
 | **Prettier** | Code formatting |
 
-### **Backend (Optional)**
-
-| Technology | Purpose |
-|------------|---------|
-| **Node.js** | Runtime environment |
-| **Express** | API server |
-| **Telegram Bot API** | Message forwarding |
-| **Nodemon** | Development server |

@@ -5,7 +5,7 @@
   <h3>Zamonaviy, chiroyli va animatsiyali full-stack developer portfoliosi</h3>
 
   <p>
-    <a href="https://ahmadjon.uz" target="_blank">🌐 Live Demo</a> •
+    <a href="https://me.xolt.uz" target="_blank">🌐 Live Demo</a> •
     <a href="#features">✨ Features</a> •
     <a href="#tech-stack">🛠️ Tech Stack</a> •
     <a href="#project-structure">📁 Structure</a> •

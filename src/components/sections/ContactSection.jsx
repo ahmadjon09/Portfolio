@@ -67,7 +67,14 @@ export default function ContactSection({ t, lang, isLight }) {
     };
 
     return (
-        <section id="contact" className="px-4 pb-24 pt-24 md:pt-32">
+        <motion.section
+            id="contact"
+            className="px-4 pb-24 pt-24 md:pt-32"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+        >
             <div className="mx-auto max-w-6xl">
                 <SectionTitle
                     eyebrow={t.contact.eyebrow}
@@ -234,6 +241,6 @@ export default function ContactSection({ t, lang, isLight }) {
                     </div>
                 </GlassCard>
             </div>
-        </section>
+        </motion.section>
     );
 }

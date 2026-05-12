@@ -27,8 +27,8 @@ export const CONTACT = {
     },
     phone: {
         label: 'Phone',
-        value: '+998 95 671 88 83',
-        href: 'tel:+998956718883',
+        value: '+998 94 996 51 54',
+        href: 'tel:+998949965154',
     },
 };
 

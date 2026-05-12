@@ -7,11 +7,12 @@ import {
     Layers,
     Braces,
     Paintbrush,
+    DatabaseZap,
 } from 'lucide-react';
 
 export const skillContent = {
     frontend: [
-        { name: 'React + Vite', level: 92, icon: Braces },
+        { name: 'React + Vite / Next.js', level: 78, icon: Braces },
         { name: 'HTML5', level: 95, icon: Code2 },
         { name: 'CSS3', level: 93, icon: Paintbrush },
         { name: 'Sass', level: 88, icon: Layers },
@@ -21,13 +22,17 @@ export const skillContent = {
         { name: 'REST API', level: 91, icon: Globe },
         { name: 'Express.js', level: 88, icon: Server },
     ],
-    database: [{ name: 'MongoDB', level: 86, icon: Database }],
+    database: [
+        { name: 'PostgreSQL', level: 68, icon: DatabaseZap },
+        { name: 'MongoDB', level: 86, icon: Database }
+    ],
 };
 
 export const projectContent = [
     {
         title: 'Music Platform',
         type: 'Web App',
+        img: '/images/music-platform.png',
         descriptionEn:
             'Online music platform with search, streaming flow, responsive UI, and API-based content handling.',
         descriptionUz:
@@ -41,6 +46,7 @@ export const projectContent = [
     {
         title: 'Telegram Cloud Bot',
         type: 'Bot System',
+        img: '/images/telegram-cloud-bot.png',
         descriptionEn:
             'Telegram bot for storing and managing files in the cloud with authentication, file handling, and database integration.',
         descriptionUz:
@@ -54,6 +60,7 @@ export const projectContent = [
     {
         title: 'Data Faker',
         type: 'Web App',
+        img: '/images/data-faker.png',
         descriptionEn:
             'Data generation tool with configurable fields, real-time preview, and export-ready output for testing and development.',
         descriptionUz:
@@ -65,8 +72,9 @@ export const projectContent = [
         link: 'https://faker.xolt.uz?via=portfolio',
     },
     {
-        title: 'AI Chat',
+        title: 'VEBOx AI',
         type: 'Web App',
+        img: '/images/vebox-ai.png',
         descriptionEn:
             'AI-based chat interface with responsive UI and backend-connected request flow.',
         descriptionUz:
@@ -75,6 +83,6 @@ export const projectContent = [
             'AI-чат интерфейс с responsive UI и backend-потоком запросов.',
         stack: ['React', 'Vite', 'REST API'],
         accent: 'from-sky-400/40 via-emerald-400/20 to-transparent',
-        link: 'https://ai.xolt.uz?via=portfolio',
+        link: 'https://chat.vebox.uz?via=portfolio',
     },
 ];

@@ -3,3 +3,8 @@
 html {
     scroll-behavior: smooth;
 }
+
+.noscript {
+    opacity: 0;
+    display: none;
+}
